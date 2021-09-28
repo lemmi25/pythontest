@@ -1,15 +1,9 @@
-#!/usr/bin/env python
-class Employee:
-   'Common base class for all employees'
-   empCount = 0
+from flask import Flask
+app = Flask(__name__)
 
-   def __init__(self, name, salary):
-      self.name = name
-      self.salary = salary
-      Employee.empCount += 1
-   
-   def displayCount(self):
-     print ("Total Employee %d" % Employee.empCount)
+@app.route("/")
+def hello():
+    return "<h1 style='color:blue'>Hello There!</h1>"
 
-   def displayEmployee(self):
-      print ("Name : ", self.name,  ", Salary: ", self.salary)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
